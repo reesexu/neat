@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="header">
+    <view class="avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <image class="icon" src="../../images/menu.svg"></image>
+  </view>
+  <view class="actions bd bd-b bd-t">
+    <view  class="actions-add">
+        <input type="text" placeholder="要做什么呢?" maxlength="140"></input>
+        <image class="icon" src="../../images/enter.svg"></image>
+    </view>
+  </view>
+  <add-btn></add-btn>
+</view>

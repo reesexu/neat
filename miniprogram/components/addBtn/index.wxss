@@ -1,0 +1,17 @@
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 48rpx;
+  right: 48rpx;
+  width: 110rpx;
+  height: 110rpx;
+  background-color: #5B88FC;
+  border-radius: 50%;
+  box-shadow: 0 6rpx 8rpx rgb(206, 206, 206);
+}
+image {
+  height: 54rpx;
+  width: 54rpx;
+}

@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110rpx;
+  padding: 0 32rpx;
+}
+.avatar {
+  height: 74rpx;
+  width: 74rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.actions {
+  padding: 0 32rpx;
+}
+.actions-add {
+  display: flex;
+  align-items: center;
+  /* height: 128rpx; */
+  height: 110rpx;
+}
+.actions-add input {
+  flex: 1;
+  height: 100%;
+}
