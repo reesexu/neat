@@ -1,0 +1,3 @@
+<view class="iconBtn">
+  <image class="icon" src="{{src}}"></image>
+</view>

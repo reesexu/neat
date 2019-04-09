@@ -29,5 +29,7 @@
       "iconPath": "./images/user.png",
       "selectedIconPath": "./images/user-b.png"
     }]
+  },
+  "usingComponents": {
   }
 }

@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "add-btn": "../../components/addBtn"
+    "add-btn": "../../components/addBtn/index"
   }
 }

@@ -1,4 +1,4 @@
-.add {
+.addBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@
   border-radius: 50%;
   box-shadow: 0 6rpx 8rpx rgb(206, 206, 206);
 }
-image {
+.addBtn image {
   height: 54rpx;
   width: 54rpx;
 }

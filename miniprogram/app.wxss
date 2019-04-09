@@ -1,117 +1,29 @@
 /**app.wxss**/
+@import "./style/1px.wxss";
+
 .container {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  box-sizing: border-box;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* box-sizing: border-box; */
 } 
 
 .icon {
-  height: 50rpx;
-  width: 50rpx;
+  height: 45rpx;
+  width: 45rpx;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
-  .bd {
-    position: relative;
-    border: none !important;
-  }
-
-  .bd::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-width: 0;
-    border-color: #BDBDBD;
-    border-style: solid;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    pointer-events: none;
-  }
-
-  .bd::before {
-    width: 150%;
-    height: 150%;
-    -webkit-transform: scale(0.66666667);
-    transform: scale(0.66666667);
-  }
-
-  .bd.bd-t::before {
-    border-top-width: 1px;
-  }
-
-  .bd.bd-r::before {
-    border-right-width: 1px;
-  }
-
-  .bd.bd-b::before {
-    border-bottom-width: 1px;
-  }
-
-  .bd.bd-l::before {
-    border-left-width: 1px;
-  }
-
-  .bd.bd-all::before {
-    border-width: 1px;
-  }
-
-  .bd.bd-radius::before {
-    border-width: 1px;
-    border-radius: 6px;
-  }
-
-  .bd.bd-dashed::before {
-    border-style: dashed !important;
-  }
-
-  hr,
-  .hr {
-    width: 150%;
-    -webkit-transform: scale(0.66666667);
-    transform: scale(0.66666667);
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-  }
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 30rpx;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  .bd::before {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-
-  .bd.bd-radius::before {
-    border-radius: 8px;
-  }
-
-  hr,
-  .hr {
-    width: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
+.iconBox-l {
+  padding-left: 10rpx;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 3) {
-  .bd::before {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333333);
-    transform: scale(0.33333333);
-  }
-
-  .bd.bd-radius::before {
-    border-radius: 12px;
-  }
-
-  hr,
-  .hr {
-    width: 300%;
-    -webkit-transform: scale(0.33333333);
-    transform: scale(0.33333333);
-  }
+.iconBox-r {
+  padding-left: 10rpx;
 }

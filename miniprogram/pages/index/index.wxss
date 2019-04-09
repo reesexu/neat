@@ -2,25 +2,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 110rpx;
-  padding: 0 32rpx;
+  height: 115rpx;
 }
 .avatar {
-  height: 74rpx;
-  width: 74rpx;
+  height: 78rpx;
+  width: 78rpx;
   border-radius: 50%;
   overflow: hidden;
+  margin-left: 30rpx;
 }
 .actions {
-  padding: 0 32rpx;
+  /* padding-left: 25rpx; */
 }
 .actions-add {
   display: flex;
   align-items: center;
-  /* height: 128rpx; */
   height: 110rpx;
 }
-.actions-add input {
+.actions-add-input {
   flex: 1;
+  height: 100%;
+}
+.actions-add-input input {
   height: 100%;
 }
