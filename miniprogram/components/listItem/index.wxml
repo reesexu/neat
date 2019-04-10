@@ -1,0 +1,11 @@
+<view class="list-item">
+  <!-- 列表项前缀 -->
+  <view class="iconBox">
+    <image wx:if="{{icon}}" class="icon" src="{{icon}}"></image>
+    <slot name="prefix"></slot>
+  </view>
+  <!-- 列表主体 -->
+  <view class="list-item-body bd bd-b">
+    <slot name="body"></slot>
+  </view>
+</view>

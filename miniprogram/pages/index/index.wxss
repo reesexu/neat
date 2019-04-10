@@ -14,15 +14,6 @@
 .actions {
   /* padding-left: 25rpx; */
 }
-.actions-add {
-  display: flex;
-  align-items: center;
-  height: 110rpx;
-}
-.actions-add-input {
-  flex: 1;
-  height: 100%;
-}
-.actions-add-input input {
+.actions input {
   height: 100%;
 }

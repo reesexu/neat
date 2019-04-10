@@ -1,4 +1,5 @@
 <view class="container">
+  <!-- 头部 -->
   <view class="header bd bd-b">
     <view class="avatar">
       <open-data type="userAvatarUrl"></open-data>
@@ -7,15 +8,11 @@
       <image class="icon" src="../../images/menu.svg"></image>
     </view>
   </view>
+  <!-- 操作栏 -->
   <view class="actions">
-    <view  class="actions-add">
-        <view class="iconBox">
-            <image class="icon" src="../../images/edit-square.svg"></image>
-        </view>
-        <view class="actions-add-input bd bd-b">
-          <input type="text" confirm-type="done" placeholder="要做什么呢?" maxlength="140"></input>
-        </view>
-    </view>
+    <list-item icon="{{'../../images/edit-square.svg'}}">
+      <input type="text" confirm-type="done" slot="body" placeholder="要做什么呢?" maxlength="140"></input>
+    </list-item>
   </view>
   <add-btn></add-btn>
 </view>

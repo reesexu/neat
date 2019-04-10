@@ -31,5 +31,6 @@
     }]
   },
   "usingComponents": {
+    "list-item": "./components/listItem/index"
   }
 }

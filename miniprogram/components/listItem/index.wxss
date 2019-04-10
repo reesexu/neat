@@ -1,0 +1,9 @@
+.list-item {
+  display: flex;
+  height: 110rpx;
+}
+.list-item-body {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}

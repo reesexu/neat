@@ -1,11 +1,13 @@
 Component({
   properties: {
-    src: {
+    // 前缀图标
+    icon: {
       type: String,
       value: ''
     }
   },
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
+    multipleSlots: true
   }
 })
