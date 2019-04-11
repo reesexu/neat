@@ -1,10 +1,12 @@
 /**app.wxss**/
 @import "./style/1px.wxss";
+@import "./style/utils.wxss";
 
 .container {
   /* display: flex; */
   /* flex-direction: column; */
   /* box-sizing: border-box; */
+  color: #212121;
 } 
 
 .icon {
@@ -26,10 +28,4 @@
 
 .iconBox-r {
   padding-left: 10rpx;
-}
-
-.ellipsis {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }

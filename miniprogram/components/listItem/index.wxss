@@ -1,4 +1,5 @@
 .list-item {
+  position: relative;
   display: flex;
   height: 110rpx;
 }

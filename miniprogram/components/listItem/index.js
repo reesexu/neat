@@ -9,5 +9,6 @@ Component({
   options: {
     addGlobalClass: true,
     multipleSlots: true
-  }
+  },
+  externalClasses: ['e-class']
 })
