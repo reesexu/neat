@@ -1,11 +1,14 @@
 <view class="list-item">
   <!-- 列表项前缀 -->
-  <view class="iconBox">
-    <image wx:if="{{icon}}" class="icon" src="{{icon}}"></image>
-    <slot name="prefix"></slot>
+  <view  wx:if="{{icon}}" class="iconBox">
+    <image class="icon" src="{{icon}}"></image>
   </view>
+  <slot wx:else name="prefix"></slot>
   <!-- 列表主体 -->
   <view class="list-item-body bd bd-b">
     <slot name="body"></slot>
+  </view>
+  <view class="bd bd-b">
+    <slot name="suffix"></slot>
   </view>
 </view>

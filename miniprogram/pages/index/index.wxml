@@ -14,5 +14,33 @@
       <input type="text" confirm-type="done" slot="body" placeholder="要做什么呢?" maxlength="140"></input>
     </list-item>
   </view>
+  <!-- 清单列表 -->
+  <list-item>
+    <view class="iconBox" slot="prefix">
+      <view class="todo-checkbox easy"></view>
+    </view>
+    <view class="iconBox" slot="suffix">
+      <image class="icon" src="../../images/more.svg"></image>
+    </view>
+  </list-item>
+  <list-item>
+    <view class="iconBox" slot="prefix">
+      <view class="todo-checkbox normal"></view>
+    </view>
+    <view class="todo-body ellipsis" slot="body">
+      <text>嘻嘻嘻哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</text>
+    </view>
+    <view class="iconBox" slot="suffix">
+      <image class="icon" src="../../images/more.svg"></image>
+    </view>
+  </list-item>
+  <list-item>
+    <view class="iconBox" slot="prefix">
+      <view class="todo-checkbox urgent"></view>
+    </view>
+    <view class="iconBox" slot="suffix">
+      <image class="icon" src="../../images/more.svg"></image>
+    </view>
+  </list-item>
   <add-btn></add-btn>
 </view>

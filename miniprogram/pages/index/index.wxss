@@ -16,4 +16,26 @@
 }
 .actions input {
   height: 100%;
+  flex: 1;
+}
+
+.todo-checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border-width: 5rpx;
+  border-style: solid;
+}
+.todo-body {
+  flex: 1;
+  width: 0;
+}
+.easy {
+  border-color: #4AD7ED;
+}
+.normal {
+  border-color: #F9C300;
+}
+.urgent {
+  border-color: #F788A6;
 }

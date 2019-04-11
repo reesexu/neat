@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 0 30rpx;
+  width: 100rpx;
 }
 
 .iconBox-l {
@@ -26,4 +26,10 @@
 
 .iconBox-r {
   padding-left: 10rpx;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
