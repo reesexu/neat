@@ -5,7 +5,7 @@
   </view>
   <slot wx:else name="prefix"></slot>
   <!-- 列表主体 -->
-  <view class="list-item-body bd bd-b">
+  <view class="list-item-body {{lineUnder ? 'bd bd-b' : ''}}">
     <slot name="body"></slot>
   </view>
   <view class="bd bd-b">

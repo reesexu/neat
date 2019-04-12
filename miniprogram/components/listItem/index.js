@@ -4,6 +4,11 @@ Component({
     icon: {
       type: String,
       value: ''
+    },
+    // 是否需要下分割线
+    lineUnder: {
+      type: Boolean,
+      value: true
     }
   },
   options: {

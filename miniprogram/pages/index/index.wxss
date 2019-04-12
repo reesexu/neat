@@ -20,8 +20,8 @@
 }
 
 .todo-checkbox {
-  width: 32rpx;
-  height: 32rpx;
+  width: 28rpx;
+  height: 28rpx;
   border-radius: 50%;
   border-width: 5rpx;
   border-style: solid;
@@ -51,4 +51,8 @@
 }
 .todo-finish .urgent {
   background: #F788A6;
+}
+.white-space {
+  height: 20rpx;
+  background: #f5f5f5;
 }

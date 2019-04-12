@@ -5,16 +5,25 @@
       <open-data type="userAvatarUrl"></open-data>
     </view>
     <view class="iconBox">
-      <image class="icon" src="../../images/menu.svg"></image>
+      <image class="icon-s" src="../../images/menu.svg"></image>
     </view>
   </view>
   <!-- 操作栏 -->
   <view class="actions">
-    <list-item icon="{{'../../images/edit-square.svg'}}">
+    <list-item icon="{{'../../images/edit-square.svg'}}"  line-under="{{false}}">
       <input type="text" confirm-type="done" slot="body" placeholder="要做什么呢?" maxlength="140"></input>
     </list-item>
   </view>
+  <view class="white-space"></view>
   <!-- 清单列表 -->
+  <list-item icon="{{'../../images/folder-fill.svg'}}">
+    <view class="todo-body ellipsis" slot="body">
+      <text>这是一个文件夹</text>
+    </view>
+    <view class="iconBox" slot="suffix">
+      <image class="icon-s" src="../../images/more.svg"></image>
+    </view>
+  </list-item>
   <list-item  e-class="todo-finish">
     <view class="iconBox" slot="prefix">
       <view class="todo-checkbox easy"></view>
@@ -23,7 +32,7 @@
       <text>嘻嘻嘻哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</text>
     </view>
     <view class="iconBox" slot="suffix">
-      <image class="icon" src="../../images/more.svg"></image>
+      <image class="icon-s" src="../../images/more.svg"></image>
     </view>
   </list-item>
   <list-item>
@@ -34,7 +43,7 @@
       <text>嘻嘻嘻哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</text>
     </view>
     <view class="iconBox" slot="suffix">
-      <image class="icon" src="../../images/more.svg"></image>
+      <image class="icon-s" src="../../images/more.svg"></image>
     </view>
   </list-item>
   <list-item>
@@ -45,7 +54,7 @@
       <text>嘻嘻嘻哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</text>
     </view>
     <view class="iconBox" slot="suffix">
-      <image class="icon" src="../../images/more.svg"></image>
+      <image class="icon-s" src="../../images/more.svg"></image>
     </view>
   </list-item>
   <add-btn></add-btn>
