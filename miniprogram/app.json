@@ -31,6 +31,7 @@
     }]
   },
   "usingComponents": {
-    "list-item": "./components/listItem/index"
+    "list-item": "./components/list-item/index",
+    "white-space": "./components/white-space/index"
   }
 }

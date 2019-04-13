@@ -1,8 +1,9 @@
 .header {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 115rpx;
+  height: 115rpx; */
+  font-size: 18px;
 }
 .avatar {
   height: 78rpx;
@@ -50,8 +51,4 @@
 }
 .todo-finish .urgent {
   background: #F788A6;
-}
-.white-space {
-  height: 20rpx;
-  background: #f5f5f5;
 }

@@ -1,20 +1,25 @@
 <view class="container">
   <!-- 头部 -->
-  <view class="header bd bd-b">
+  <!-- <view class="header bd bd-b">
     <view class="avatar">
       <open-data type="userAvatarUrl"></open-data>
     </view>
     <view class="iconBox">
       <image class="icon" src="../../images/menu.svg"></image>
     </view>
-  </view>
+  </view> -->
+  <list-item icon="{{'../../images/menu.svg'}}">
+    <view slot="body" class="header">
+      我的待办
+    </view>
+  </list-item>
   <!-- 操作栏 -->
   <view class="actions">
     <list-item icon="{{'../../images/edit.svg'}}"  line-under="{{false}}">
       <input type="text" confirm-type="done" slot="body" placeholder="要做什么呢?" maxlength="140"></input>
     </list-item>
   </view>
-  <view class="white-space"></view>
+  <white-space></white-space>
   <!-- 清单列表 -->
   <list-item icon="{{'../../images/check-list.svg'}}">
     <view class="todo-body ellipsis" slot="body">
