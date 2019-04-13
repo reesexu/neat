@@ -2,35 +2,20 @@
 @import "./style/1px.wxss";
 @import "./style/utils.wxss";
 
-.container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* box-sizing: border-box; */
+page {
+  font-size: 15px;
+  letter-spacing: .5px;
   color: #212121;
 } 
 
 .icon {
-  height: 50rpx;
-  width: 50rpx;
-}
-
-.icon-s {
   height: 45rpx;
   width: 45rpx;
 }
-
 .iconBox {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100rpx;
-}
-
-.iconBox-l {
-  padding-left: 10rpx;
-}
-
-.iconBox-r {
-  padding-left: 10rpx;
 }

@@ -18,12 +18,11 @@
   height: 100%;
   flex: 1;
 }
-
 .todo-checkbox {
   width: 28rpx;
   height: 28rpx;
-  border-radius: 50%;
-  border-width: 5rpx;
+  border-radius: 5rpx;
+  border-width: 4rpx;
   border-style: solid;
 }
 .todo-body {
