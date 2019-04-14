@@ -1,0 +1,33 @@
+.todo-checkbox {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 5rpx;
+  border-width: 4rpx;
+  border-style: solid;
+}
+.todo-body {
+  flex: 1;
+  width: 0;
+}
+.easy {
+  border-color: #BDBDBD;
+}
+.normal {
+  border-color: #F9C300;
+}
+.urgent {
+  border-color: #F788A6;
+}
+.todo-finish text {
+  text-decoration: line-through;
+  color: #BDBDBD;
+}
+.todo-finish .easy {
+  background: #BDBDBD;
+}
+.todo-finish .normal {
+  background: #F9C300;
+}
+.todo-finish .urgent {
+  background: #F788A6;
+}

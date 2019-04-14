@@ -1,12 +1,8 @@
 {
+  "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/storageConsole/storageConsole"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -24,7 +20,7 @@
       "iconPath": "./images/file-done.png",
       "selectedIconPath": "./images/file-done-b.png"
     }, {
-      "pagePath": "pages/userConsole/userConsole",
+      "pagePath": "pages/storageConsole/storageConsole",
       "text": "我",
       "iconPath": "./images/user.png",
       "selectedIconPath": "./images/user-b.png"
@@ -32,6 +28,7 @@
   },
   "usingComponents": {
     "list-item": "./components/list-item/index",
-    "white-space": "./components/white-space/index"
+    "white-space": "./components/white-space/index",
+    "todo-item": "./components/todo-item/index"
   }
 }
