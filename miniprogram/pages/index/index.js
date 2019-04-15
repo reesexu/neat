@@ -3,25 +3,33 @@ const {models} = getApp()
 
 Page({
   data: {
-    todos: []
+    todos: [],
+    value: ''
   },
   onLoad () {
     this.getTodos()
   },
   async addTodo ({detail}) {
     try {
+      wx.showNavigationBarLoading()
       await models.todo.addTodo({title: detail.value})
-      await this.getTodos()
+      this.setData({value: ''})
+      this.getTodos()
     } catch (error) {
       console.error(error)
+    } finally {
+      wx.hideNavigationBarLoading()
     }
   },
   async getTodos () {
     try {
+      wx.showNavigationBarLoading()
       const {data} = await models.todo.getTodos()
       this.setData({todos: data})
     } catch (error) {
       console.error(error)
+    } finally {
+      wx.hideNavigationBarLoading()
     }
   }
 })

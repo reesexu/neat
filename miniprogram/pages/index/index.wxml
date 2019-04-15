@@ -16,7 +16,7 @@
     <list-item icon="{{'../../images/edit.svg'}}" line-under="{{false}}">
       <input type="text" confirm-type="done" slot="body" 
         placeholder="添加任务..." placeholder-style="color: #BDBDBD" 
-        maxlength="120" bindconfirm="addTodo">
+        maxlength="10" bindconfirm="addTodo" value="{{value}}">
       </input>
     </list-item>
   </view>

@@ -5,7 +5,7 @@
   <view class="todo-body ellipsis" slot="body">
     <text>{{todo.title}}</text>
   </view>
-  <view class="iconBox" slot="suffix">
+  <view class="iconBox" slot="suffix" bindtap="showTodoActions">
     <image class="icon" src="../../images/more.svg"></image>
   </view>
 </list-item>
