@@ -1,19 +1,41 @@
 import {regeneratorRuntime} from '../../lib/index'
-const {models} = getApp()
+import {REFRESH_TODOS} from '../../constants/event'
+import {TITLE_MAX_LENGTH} from '../../constants/index'
+const {models, event} = getApp()
 
 Page({
   data: {
     todos: [],
-    value: ''
+    title: '',
+    maxLength: TITLE_MAX_LENGTH + 1
   },
   onLoad () {
+    event.on(REFRESH_TODOS, this.getTodos)
     this.getTodos()
   },
-  async addTodo ({detail}) {
+  onInput ({detail}) {
+    let title = detail.value
+    if (title.length > TITLE_MAX_LENGTH) {
+        wx.showToast({
+          title: `标题长度不能超过${TITLE_MAX_LENGTH}`,
+          icon: 'none'
+        })
+        title = title.substring(0, TITLE_MAX_LENGTH)
+    }
+    this.setData({title})
+  },
+  async addTodo () {
+    const {title} = this.data
+    if (!title.replace(/\s/g, '')) {
+      return wx.showToast({
+        title: '标题不能为空',
+        icon: 'none'
+      })
+    }
     try {
       wx.showNavigationBarLoading()
-      await models.todo.addTodo({title: detail.value})
-      this.setData({value: ''})
+      await models.todo.addTodo({title})
+      this.setData({title: ''})
       this.getTodos()
     } catch (error) {
       console.error(error)

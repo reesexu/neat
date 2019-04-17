@@ -1,4 +1,5 @@
 import {regeneratorRuntime} from './lib/index'
+import EventEmitter from 'eventemitter3'
 import Todo from './models/todo'
 import User from './models/user'
 import Popup from './models/popup'
@@ -11,6 +12,7 @@ App({
     openId: '',
     currentTodo: {}
   },
+  event: new EventEmitter(),
   models: {},
   async onLaunch() {
     // 创建模型对象

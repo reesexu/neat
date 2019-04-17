@@ -14,10 +14,15 @@
   <!-- 操作栏 -->
   <view class="actions">
     <list-item icon="{{'../../images/edit.svg'}}" line-under="{{false}}">
-      <input type="text" confirm-type="done" slot="body" 
-        placeholder="添加任务..." placeholder-style="color: #BDBDBD" 
-        maxlength="10" bindconfirm="addTodo" value="{{value}}">
+      <input 
+        type="text" confirm-type="done" slot="body" 
+        placeholder="添加任务..." placeholder-style="color: #BDBDBD"
+        bindconfirm="addTodo" value="{{title}}" maxlength="{{maxLength}}"
+        bindinput="onInput">
       </input>
+      <view class="iconBox" wx:if="{{title}}" slot="suffix" bindtap="addTodo">
+        <image class="icon" src="../../images/enter.svg"></image>
+      </view>
     </list-item>
   </view>
   <white-space></white-space>

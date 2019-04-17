@@ -1,4 +1,5 @@
 import {regeneratorRuntime} from '../lib/index'
+import {REFRESH_TODOS} from '../constants/event'
 import Base from './base'
 const FILE_ACTIONS = ['删除']
 export default class Popup extends Base {
@@ -9,15 +10,15 @@ export default class Popup extends Base {
   }
   // 展示任务操作弹窗
   showTodoActions() {
-    const {models, globalData} = this.app
+    const {models, globalData, event} = this.app
     wx.showActionSheet({
       itemList: FILE_ACTIONS,
       async success ({ tapIndex }) {
         switch (tapIndex) {
           case 0:
             try {
-              const data = await models.todo.deleteTodoById(globalData.currentTodo._id)
-              console.log(data)
+              await models.todo.deleteTodoById(globalData.currentTodo._id)
+              event.emit(REFRESH_TODOS)
             } catch (error) {
               console.error(error)
             }
