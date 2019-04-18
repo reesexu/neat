@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "debounce": "^1.2.0",
     "eventemitter3": "^3.1.0",
-    "miniprogram-computed": "0.0.7"
+    "miniprogram-computed": "0.0.7",
+    "throttleit": "^1.0.0"
   }
 }
