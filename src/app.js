@@ -1,5 +1,4 @@
-import {regeneratorRuntime} from './lib/index'
-import EventEmitter from 'eventemitter3'
+import Eventemitter from 'eventemitter3'
 import Todo from './models/todo'
 import User from './models/user'
 import Popup from './models/popup'
@@ -12,9 +11,15 @@ App({
     openId: '',
     currentTodo: {}
   },
-  event: new EventEmitter(),
+  event: new Eventemitter(),
   models: {},
   async onLaunch() {
+    /*<jdists trigger="prod">
+    console.log('prod')
+    </jdists>*/
+    /*<jdists trigger="dev">
+    console.log('dev')
+    </jdists>*/
     // 创建模型对象
     this.models = {
       todo: new Todo(db, this),

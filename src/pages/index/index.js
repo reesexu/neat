@@ -1,4 +1,3 @@
-import { regeneratorRuntime } from '../../lib/index'
 import { REFRESH_TODOS } from '../../constants/event'
 import { TITLE_MAX_LENGTH } from '../../constants/index'
 import debounce from 'debounce'
@@ -28,11 +27,11 @@ Page({
       title = title.substring(0, TITLE_MAX_LENGTH)
     }
     this.setData({ title })
-  }, 300),
+  }, 250),
   // 添加任务
   addTodo: throttle(async function() {
     const { title } = this.data
-    if (!/[\S]+/g.test(title)) {
+    if (!/\S+/g.test(title)) {
       return showToast('标题不能为空')
     }
     try {

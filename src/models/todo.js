@@ -1,4 +1,3 @@
-import {regeneratorRuntime} from '../lib/index'
 import Base from './base'
 const TODOS = 'todos'
 export default class Todo extends Base{

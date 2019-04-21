@@ -1,4 +1,3 @@
-import {regeneratorRuntime} from '../lib/index'
 import {REFRESH_TODOS} from '../constants/event'
 import Base from './base'
 const FILE_ACTIONS = ['删除']
