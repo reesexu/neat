@@ -1,0 +1,21 @@
+.header {
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 115rpx; */
+  font-size: 18px;
+}
+.avatar {
+  height: 78rpx;
+  width: 78rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 30rpx;
+}
+.actions {
+  /* padding-left: 25rpx; */
+}
+.actions input {
+  height: 100%;
+  flex: 1;
+}

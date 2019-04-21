@@ -1,0 +1,21 @@
+/**app.wxss**/
+@import "./style/1px.wxss";
+@import "./style/utils.wxss";
+
+page {
+  font-size: 15px;
+  letter-spacing: .5px;
+  color: #212121;
+} 
+
+.icon {
+  height: 45rpx;
+  width: 45rpx;
+}
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100rpx;
+}

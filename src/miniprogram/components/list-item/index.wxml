@@ -1,0 +1,14 @@
+<view class="list-item e-class">
+  <!-- 列表项前缀 -->
+  <view  wx:if="{{icon}}" class="iconBox">
+    <image class="icon" src="{{icon}}"></image>
+  </view>
+  <slot wx:else name="prefix"></slot>
+  <!-- 列表主体 -->
+  <view class="list-item-body {{lineUnder ? 'bd bd-b' : ''}}">
+    <slot name="body"></slot>
+  </view>
+  <view class="bd bd-b">
+    <slot name="suffix"></slot>
+  </view>
+</view>

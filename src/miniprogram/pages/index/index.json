@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "清单",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "add-btn": "../../components/add-btn/index"
+  }
+}
