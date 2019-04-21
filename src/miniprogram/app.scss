@@ -1,0 +1,18 @@
+@import "./style/theme.scss";
+@import "./style/1px.scss";
+@import "./style/utils.scss";
+
+page {
+  font-size: 15px;
+  letter-spacing: .5px;
+  color: $color-primary-text;
+}
+.icon {
+  height: 45rpx;
+  width: 45rpx;
+}
+.iconBox {
+  @extend %flexCenter;
+  height: 100%;
+  width: 100rpx;
+}

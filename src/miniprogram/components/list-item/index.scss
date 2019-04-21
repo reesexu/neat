@@ -1,0 +1,11 @@
+.list-item {
+  position: relative;
+  display: flex;
+  height: 110rpx;
+
+  &-body {
+    display: flex;
+    flex: 1;
+    line-height: 110rpx;
+  }
+}
