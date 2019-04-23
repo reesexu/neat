@@ -3,7 +3,7 @@
     <view class="todo-checkbox {{priorityClass}}"></view>
   </view>
   <view class="todo-body" slot="body">
-    <text>{{todo.title}}</text>
+    <text class="todo-body-title">{{todo.title}}</text>
   </view>
   <view class="iconBox" slot="suffix" bindtap="showTodoActions">
     <image class="icon" src="../../images/more.svg"></image>
