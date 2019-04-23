@@ -18,23 +18,23 @@
       text-decoration: line-through;
       color: $color-easy;
     }
-    .easy {
-      background: $color-easy;
-    }
-    .normal {
-      background: $color-normal;
-    }
-    .urgent {
-      background: $color-urgent;
-    }
   }
 }
 .easy {
   border-color: $color-easy;
+  &-finish {
+    background: $color-easy;
+  }
 }
 .normal {
   border-color: $color-normal;
+  &-finish {
+    background: $color-normal;
+  }
 }
 .urgent {
   border-color: $color-urgent;
+  &-finish {
+    background: $color-urgent;
+  }
 }

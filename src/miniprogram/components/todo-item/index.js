@@ -14,7 +14,8 @@ Component({
   },
   computed: {
     priorityClass() {
-      return `.${priorityClasses[this.properties.todo.priority]}`
+      const {priority, finish} = this.properties.todo
+      return `.${priorityClasses[priority]}${finish ? 'finish' : ''}`
     }
   },
   methods: {
