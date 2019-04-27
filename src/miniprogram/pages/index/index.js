@@ -9,7 +9,8 @@ Page({
   data: {
     todos: [],
     title: '',
-    maxLength: TITLE_MAX_LENGTH + 1
+    maxLength: TITLE_MAX_LENGTH + 1,
+    loading: false
   },
   onLoad() {
     event.on(REFRESH_TODOS, this.getTodos)
@@ -46,15 +47,22 @@ Page({
     }
   }, 1000),
   // 获取任务
-  async getTodos() {
+  async getTodos(skip = 0) {
+    const { loading, todos } = this.data
+    if (loading) return
+    this.setData({ loading: true })
     try {
       wx.showNavigationBarLoading()
-      const { data } = await models.todo.getTodos()
-      this.setData({ todos: data })
+      const { data } = await models.todo.getTodos({ skip })
+      this.setData({ todos: skip === 0 ? data : todos.concat(data) })
     } catch (error) {
       console.error(error)
     } finally {
+      this.setData({ loading: false })
       wx.hideNavigationBarLoading()
     }
+  },
+  onReachBottom() {
+    this.getTodos(this.data.todos.length)
   }
 })

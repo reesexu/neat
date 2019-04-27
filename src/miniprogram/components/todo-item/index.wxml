@@ -1,5 +1,5 @@
 <list-item e-class="{{todo.finish ? 'todo-finish' : ''}}">
-  <view class="iconBox" slot="prefix">
+  <view class="iconBox" slot="prefix" bindtap="finishTodo">
     <view class="todo-checkbox {{priorityClass}}"></view>
   </view>
   <view class="todo-body" slot="body">

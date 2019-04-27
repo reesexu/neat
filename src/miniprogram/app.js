@@ -11,6 +11,7 @@ App({
     openId: '',
     currentTodo: {}
   },
+  db,
   event: new Eventemitter(),
   models: {},
   async onLaunch() {
