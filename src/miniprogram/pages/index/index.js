@@ -48,13 +48,22 @@ Page({
   }, 1000),
   // 获取任务
   async getTodos(skip = 0) {
-    const { loading, todos } = this.data
+    const { loading } = this.data
     if (loading) return
     this.setData({ loading: true })
     try {
       wx.showNavigationBarLoading()
       const { data } = await models.todo.getTodos({ skip })
-      this.setData({ todos: skip === 0 ? data : todos.concat(data) })
+      // 局部更新，防止在setData的时候数据量不断增大
+      if (skip !== 0) {
+        let updateItems = data.reduce((acc, item, index) => {
+          acc[`todos[${skip + index}]`] = item
+          return acc
+        }, {})
+        this.setData(updateItems)
+      } else {
+        this.setData({ todos: data })
+      }
     } catch (error) {
       console.error(error)
     } finally {
