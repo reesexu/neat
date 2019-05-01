@@ -1,1 +1,2 @@
 export const REFRESH_TODOS = 'REFRESH_TODOS'
+export const UPDATE_LOCAL_TODO = 'UPDATE_LOCAL_TODO'

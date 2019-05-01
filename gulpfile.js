@@ -10,7 +10,7 @@ const axios = require('axios')
 const inject = require('gulp-inject-string')
 const jdists = require('gulp-jdists')
 const imagemin = require('gulp-imagemin')
-const devToolPort = 19646 // 微信开发工具服务端端口
+const devToolPort = 40470 // 微信开发工具服务端端口
 const host = 'http://127.0.0.1'
 const requestUrl = `${host}:${devToolPort}`
 const src = './src' // 源码目录
@@ -74,7 +74,12 @@ const images = () => gulp.src(`${src}/**/images/**`)
 const wxs = () => gulp.src(`${src}/**/*.wxs`).pipe(gulp.dest(dist))
 
 // 清空构建目录
-const clean = async () => await del([`${dist}`])
+const clean = () => new Promise(async (resolve) => {
+  await del([`${dist}`])
+  setTimeout(() => {
+    resolve()
+  }, 1000)
+})
 
 // 组合的处理js任务，先移动js，然后构建npm，将regeneratorRuntime移动至npm目录，然后给需要的js文件自动注入引入regeneratorRuntime语句
 const jsTasks = series(js, parallel(series(npm, moveRunTime), injectRuntime))

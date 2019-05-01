@@ -1,4 +1,4 @@
-import { REFRESH_TODOS } from '../../constants/event'
+import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
 import { TITLE_MAX_LENGTH } from '../../constants/index'
 import debounce from 'debounce'
 import throttle from 'throttleit'
@@ -13,12 +13,16 @@ Page({
     loading: false
   },
   onLoad() {
-    event.on(REFRESH_TODOS, this.getTodos)
     this.getTodos()
+    event.on(REFRESH_TODOS, this.getTodos)
+    event.on(UPDATE_LOCAL_TODO, this.updateLocalTodo)
   },
   async onPullDownRefresh() {
     await this.getTodos()
     wx.stopPullDownRefresh()
+  },
+  onReachBottom() {
+    this.getTodos(this.data.todos.length)
   },
   // 输入事件
   onInput: debounce(function({ detail }) {
@@ -71,7 +75,14 @@ Page({
       wx.hideNavigationBarLoading()
     }
   },
-  onReachBottom() {
-    this.getTodos(this.data.todos.length)
+  // 更新当前列表中的任务
+  updateLocalTodo(newTodoAttr) {
+    const { _id } = newTodoAttr
+    const index = this.data.todos.findIndex(t => t._id === _id)
+    if (index !== -1) {
+      this.setData({
+        [`todos[${index}]`]: Object.assign(this.data.todos[index], newTodoAttr)
+      })
+    }
   }
 })
