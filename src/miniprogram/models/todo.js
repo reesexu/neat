@@ -23,12 +23,12 @@ export default class Todo extends Base {
     })
   }
   // 获取任务
-  async getTodos({ skip = 0 } = {}) {
+  async getTodos({ skip = 0, where = {}} = {}) {
     const data = await this.db.collection(TODOS)
       .limit(20)
       .skip(skip)
       .orderBy('utime', 'desc')
-      .where({ deleted: false })
+      .where(where)
       .get({ _openid: this.app.globalData.openId })
     return data
   }

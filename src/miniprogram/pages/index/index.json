@@ -3,5 +3,6 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "add-btn": "../../components/add-btn/index"
-  }
+  },
+  "component": true
 }

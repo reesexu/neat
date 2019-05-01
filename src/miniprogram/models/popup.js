@@ -1,4 +1,4 @@
-import { REFRESH_TODOS } from '../constants/event'
+import { UPDATE_LOCAL_TODO } from '../constants/event'
 import Base from './base'
 const FILE_ACTIONS = ['删除']
 export default class Popup extends Base {
@@ -18,7 +18,7 @@ export default class Popup extends Base {
           case 0:
             try {
               await models.todo.updateTodo({ _id, data: { deleted: true } })
-              event.emit(REFRESH_TODOS)
+              event.emit(UPDATE_LOCAL_TODO, { _id, removed: true })
             } catch (error) {
               console.error(error)
             }

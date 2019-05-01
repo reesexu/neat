@@ -27,6 +27,6 @@
   </view>
   <white-space></white-space>
   <!-- 清单列表 -->
-  <todo-item wx:for="{{todos}}" wx:key="{{item._id}}" todo="{{item}}"></todo-item>
+  <todo-item wx:for="{{finalTodos}}" wx:key="{{item._id}}" todo="{{item}}"></todo-item>
   <add-btn></add-btn>
 </view>
