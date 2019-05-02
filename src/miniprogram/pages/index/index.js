@@ -5,6 +5,7 @@ import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
 import { TITLE_MAX_LENGTH } from '../../constants/index'
 import { showToast } from '../../utils/wx'
 const { models, event } = getApp()
+const count = 20
 
 Component({
   data: {
@@ -30,7 +31,8 @@ Component({
       wx.stopPullDownRefresh()
     },
     onReachBottom() {
-      this.getTodos(this.data.finalTodos.length)
+      const { length } = this.data.finalTodos
+      length >= count && this.getTodos(length)
     },
     // 输入事件
     onInput: debounce(function({ detail }) {
@@ -65,7 +67,7 @@ Component({
       this.setData({ loading: true })
       try {
         wx.showNavigationBarLoading()
-        const { data } = await models.todo.getTodos({ skip, where: { deleted: false, finish: false } })
+        const { data } = await models.todo.getTodos({ skip, where: { deleted: false } })
         // 局部更新，防止在setData的时候数据量不断增大
         if (skip !== 0) {
           let updateItems = data.reduce((acc, item, index) => {

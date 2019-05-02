@@ -1,5 +1,6 @@
+@import "../../style/theme.scss";
 .header {
-  font-size: 18px;
+  font-size: $font-size-larger;
 }
 .avatar {
   height: 78rpx;
@@ -11,4 +12,10 @@
 .actions input {
   height: 100%;
   flex: 1;
+}
+.loading-info {
+  text-align: center;
+  color: $color-secondary-text;
+  width: 100%;
+  font-size: $font-size-small;
 }

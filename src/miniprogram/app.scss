@@ -3,7 +3,7 @@
 @import "./style/utils.scss";
 
 page {
-  font-size: 15px;
+  font-size: $font-size-normal;
   letter-spacing: .5px;
   color: $color-primary-text;
 }

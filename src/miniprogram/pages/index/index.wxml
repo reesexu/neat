@@ -28,5 +28,9 @@
   <white-space></white-space>
   <!-- 清单列表 -->
   <todo-item wx:for="{{finalTodos}}" wx:key="{{item._id}}" todo="{{item}}"></todo-item>
+  <!-- 下拉加载提示区 -->
+  <list-item line-under="{{false}}">
+    <view slot="body" wx:if="{{loading && finalTodos.length >= 20}}" class="loading-info">正在加载...</view>
+  </list-item>
   <add-btn></add-btn>
 </view>
