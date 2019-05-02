@@ -1,7 +1,7 @@
 import computedBehavior from 'miniprogram-computed'
 import throttle from 'throttleit'
 import { UPDATE_LOCAL_TODO } from '../../constants/event'
-const priorityClasses = ['easy', 'normal', 'urgent']
+import { priorityClasses } from '../../constants/index'
 const { models, event } = getApp()
 Component({
   behaviors: [computedBehavior],

@@ -2,7 +2,7 @@ import debounce from 'debounce'
 import throttle from 'throttleit'
 import computedBehavior from 'miniprogram-computed'
 import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
-import { TITLE_MAX_LENGTH } from '../../constants/index'
+import { TITLE_MAX_LENGTH, priorityClasses } from '../../constants/index'
 import { showToast } from '../../utils/wx'
 const { models, event } = getApp()
 const count = 20
@@ -13,11 +13,15 @@ Component({
     title: '',
     maxLength: TITLE_MAX_LENGTH + 1,
     loading: false,
+    defPriority: 0
   },
   behaviors: [computedBehavior],
   computed: {
     finalTodos() {
       return this.data.todos.filter(t => !t.removed)
+    },
+    priorityIcon() {
+      return `../../images/priority-${priorityClasses[this.data.defPriority]}.svg`
     }
   },
   methods: {
@@ -45,13 +49,13 @@ Component({
     }, 250),
     // 添加任务
     addTodo: throttle(async function() {
-      const { title } = this.data
+      const { title, defPriority } = this.data
       if (!/\S+/g.test(title)) {
         return showToast('标题不能为空')
       }
       try {
         wx.showNavigationBarLoading()
-        await models.todo.addTodo({ title })
+        await models.todo.addTodo({ title, priority: defPriority })
         this.setData({ title: '' })
         this.getTodos()
       } catch (error) {
@@ -94,6 +98,13 @@ Component({
           [`todos[${index}]`]: Object.assign(this.data.todos[index], newTodoAttr)
         })
       }
+    },
+    selectDefPriority() {
+      models.popup.selectDefPriority((index) => {
+        this.setData({
+          defPriority: 2 - index
+        })
+      })
     }
   }
 })

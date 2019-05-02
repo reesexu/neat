@@ -20,6 +20,9 @@
         bindconfirm="addTodo" value="{{title}}" maxlength="{{maxLength}}"
         bindinput="onInput">
       </input>
+      <view class="iconBox" slot="s-suffix" bindtap="selectDefPriority">
+        <image class="icon priority-btn" src="{{priorityIcon}}"></image>
+      </view>
       <view class="iconBox" wx:if="{{title}}" slot="suffix" bindtap="addTodo">
         <image class="icon" src="../../images/enter.svg"></image>
       </view>
