@@ -2,7 +2,7 @@ import debounce from 'debounce'
 import throttle from 'throttleit'
 import computedBehavior from 'miniprogram-computed'
 import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
-import { TITLE_MAX_LENGTH, priorityClasses } from '../../constants/index'
+import { TITLE_MAX_LENGTH, priorityClasses, storgeKeys } from '../../constants/index'
 import { showToast } from '../../utils/wx'
 const { models, event } = getApp()
 const count = 20
@@ -27,13 +27,21 @@ Component({
   methods: {
     onLoad() {
       this.getTodos()
+      wx.getStorage({
+        key: storgeKeys.defPriority,
+        success: ({ data = 0 }) => {
+          this.setData({ defPriority: data })
+        }
+      })
       event.on(REFRESH_TODOS, this.getTodos.bind(this))
       event.on(UPDATE_LOCAL_TODO, this.updateLocalTodo.bind(this))
     },
+    // 下拉刷新
     async onPullDownRefresh() {
       await this.getTodos()
       wx.stopPullDownRefresh()
     },
+    // 上拉加载更多
     onReachBottom() {
       const { length } = this.data.finalTodos
       length >= count && this.getTodos(length)
@@ -101,8 +109,9 @@ Component({
     },
     selectDefPriority() {
       models.popup.selectDefPriority((index) => {
-        this.setData({
-          defPriority: 2 - index
+        const defPriority = 2 - index
+        this.setData({ defPriority }, () => {
+          wx.setStorageSync(storgeKeys.defPriority, defPriority)
         })
       })
     }
