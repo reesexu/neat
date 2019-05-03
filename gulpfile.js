@@ -4,13 +4,12 @@ const { series, parallel } = gulp
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
 const combiner = require('stream-combiner2')
-const del = require('del')
 const gulpif = require('gulp-if')
 const axios = require('axios')
 const inject = require('gulp-inject-string')
 const jdists = require('gulp-jdists')
 const imagemin = require('gulp-imagemin')
-const devToolPort = 45810 // 微信开发工具服务端端口
+const devToolPort = 20566 // 微信开发工具服务端端口
 const host = 'http://127.0.0.1'
 const requestUrl = `${host}:${devToolPort}`
 const src = './src' // 源码目录
@@ -73,14 +72,6 @@ const images = () => gulp.src(`${src}/**/images/**`)
 // 处理wxs
 const wxs = () => gulp.src(`${src}/**/*.wxs`).pipe(gulp.dest(dist))
 
-// 清空构建目录
-const clean = () => new Promise(async (resolve) => {
-  await del([`${dist}`])
-  setTimeout(() => {
-    resolve()
-  }, 1000)
-})
-
 // 组合的处理js任务，先移动js，然后构建npm，将regeneratorRuntime移动至npm目录，然后给需要的js文件自动注入引入regeneratorRuntime语句
 const jsTasks = series(js, parallel(series(npm, moveRunTime), injectRuntime))
 
@@ -101,6 +92,5 @@ const baseTasks = parallel(json, images, wxml, wxss, jsTasks, wxs)
 
 exports.npm = npm
 exports.js = js
-exports.clean = clean
-exports.dev = series(clean, baseTasks, watch)
-exports.build = series(clean, baseTasks)
+exports.dev = series(baseTasks, watch)
+exports.build = series(baseTasks)

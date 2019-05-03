@@ -4,10 +4,10 @@
   "description": "这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：",
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development gulp dev",
+    "dev": "npm run clean && cross-env NODE_ENV=development gulp dev",
     "dev:auto": "cross-env AUTO_PREVIEW=auto npm run dev",
-    "build": "gulp build",
-    "clean": "gulp clean",
+    "build": "npm run clean && gulp build",
+    "clean": "rimraf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,7 +15,6 @@
   "devDependencies": {
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",
-    "del": "^4.1.0",
     "gulp": "^4.0.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
@@ -23,6 +22,7 @@
     "gulp-jdists": "^2.2.3",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
+    "rimraf": "^2.6.3",
     "stream-combiner2": "^1.1.1"
   }
 }
