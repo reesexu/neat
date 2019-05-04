@@ -22,6 +22,7 @@ const miniprogramNpmFolderPath = `${miniprogramDistPath}/miniprogram_npm`
 const projectpath = path.resolve(dist)
 const isDev = process.env.NODE_ENV === 'development'
 const isAutoPreview = process.env.AUTO_PREVIEW === 'auto'
+axios.default.timeout = 6000
 
 // 处理wxml
 const wxml = () => gulp

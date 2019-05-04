@@ -7,7 +7,7 @@ export const validatetTodoTitle = (title) => {
   }
   return title
 }
-export const contentEmpyt = (title, infoPrefix = '标题') => {
+export const contentEmpyt = (title = '', infoPrefix = '标题') => {
   if (!/\S+/g.test(title)) {
     showToast(`${infoPrefix}不能为空`)
     return true

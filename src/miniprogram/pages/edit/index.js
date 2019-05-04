@@ -2,7 +2,7 @@ import debounce from 'debounce'
 import isEqual from 'lodash.isequal'
 import computedBehavior from 'miniprogram-computed'
 import { TITLE_MAX_LENGTH, priorityClasses } from '../../constants/index'
-import { UPDATE_LOCAL_TODO } from '../../constants/event'
+import { UPDATE_LOCAL_TODO, REFRESH_TODOS } from '../../constants/event'
 import { validatetTodoTitle, contentEmpyt } from '../../utils/validate'
 import { showToast } from '../../utils/wx'
 const { globalData, models, event } = getApp()
@@ -12,6 +12,12 @@ Component({
     maxLength: TITLE_MAX_LENGTH + 1,
     operating: false
   },
+  properties: {
+    type: {
+      type: String,
+      value: 'edit'
+    }
+  },
   behaviors: [computedBehavior],
   computed: {
     priorityIcon() {
@@ -19,14 +25,18 @@ Component({
       return `../../images/priority-${priorityClasses[priority]}.svg`
     },
     disabled() {
-      return isEqual(this.data.todo, globalData.currentTodo)
+      const { todo, type } = this.data
+      if (type === 'edit') {
+        return isEqual(todo, globalData.currentTodo)
+      }
+      return false
     }
   },
   methods: {
     onLoad() {
       const todo = Object.assign({}, globalData.currentTodo)
       this.setData({ todo })
-      wx.setNavigationBarTitle({ title: todo.title ? '编辑任务' : '添加任务' })
+      wx.setNavigationBarTitle({ title: todo.title ? '编辑任务' : '新建任务' })
     },
     // 标题输入事件
     onTitleInput: debounce(function({ detail }) {
@@ -51,10 +61,11 @@ Component({
     },
     // 确认提交
     async onSubmit() {
-      const { operating, todo } = this.data
+      const { operating, todo, type } = this.data
       const { priority = 0, title, description, _id } = todo
       if (operating) return
       if (contentEmpyt(title)) return
+      const isEdit = type === 'edit'
       const data = {
         title,
         priority,
@@ -62,14 +73,19 @@ Component({
       }
       try {
         this.setData({ operating: true })
-        await models.todo.updateTodo({ _id, data, updateTime: true })
+        if (isEdit) {
+          await models.todo.updateTodo({ _id, data, updateTime: true })
+          event.emit(UPDATE_LOCAL_TODO, { _id, ...data })
+        } else {
+          await models.todo.addTodo(data)
+          event.emit(REFRESH_TODOS)
+        }
         wx.navigateBack()
-        event.emit(UPDATE_LOCAL_TODO, { _id, ...data })
-        showToast('编辑成功', {
-          duration: 2000
-        })
+        setTimeout(() => {
+          showToast(`${isEdit ? '编辑' : '新建'}成功`, { duration: 1500 })
+        }, 300)
       } catch (error) {
-        console.log(error)
+        console.error(error)
       } finally {
         this.setData({ operating: false })
       }

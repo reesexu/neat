@@ -10,8 +10,13 @@
   background-color: $color-main;
   border-radius: 50%;
   box-shadow: 0 6rpx 8rpx rgb(206, 206, 206);
-  image {
+  &-icon {
     height: 54rpx;
     width: 54rpx;
+    transform: none;
+    transition: all .3s;
+    &-rotate {
+      transform: rotate(45deg);
+    }
   }
 }

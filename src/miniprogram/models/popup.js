@@ -1,6 +1,6 @@
 import { UPDATE_LOCAL_TODO } from '../constants/event'
 import Base from './base'
-const FILE_ACTIONS = ['删除']
+const FILE_ACTIONS = ['删除', '编辑']
 const priority = ['高', '中', '低']
 export default class Popup extends Base {
   constructor(db, app) {
@@ -23,6 +23,9 @@ export default class Popup extends Base {
             } catch (error) {
               console.error(error)
             }
+            break
+          case 1:
+            wx.navigateTo({ url: '/pages/edit/index' })
             break
         }
       },
