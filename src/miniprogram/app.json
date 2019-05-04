@@ -2,6 +2,7 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
+    "pages/edit/index",
     "pages/storageConsole/storageConsole"
   ],
   "window": {

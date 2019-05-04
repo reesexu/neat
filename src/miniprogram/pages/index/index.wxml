@@ -14,7 +14,8 @@
   <!-- 操作栏 -->
   <view class="actions">
     <list-item icon="{{'../../images/edit.svg'}}" line-under="{{false}}">
-      <input 
+      <input
+        class="list-item-input"
         type="text" confirm-type="done" slot="body" 
         placeholder="添加任务..." placeholder-style="color: #BDBDBD"
         bindconfirm="addTodo" value="{{title}}" maxlength="{{maxLength}}"
@@ -33,7 +34,7 @@
   <todo-item wx:for="{{finalTodos}}" wx:key="{{item._id}}" todo="{{item}}"></todo-item>
   <!-- 下拉加载提示区 -->
   <list-item line-under="{{false}}">
-    <view slot="body" wx:if="{{loading && finalTodos.length >= 20}}" class="loading-info">正在加载...</view>
+    <view slot="body" wx:if="{{loading && (finalTodos.length >= 20 || finalTodos.length === 0)}}" class="loading-info">正在加载...</view>
   </list-item>
   <add-btn></add-btn>
 </view>

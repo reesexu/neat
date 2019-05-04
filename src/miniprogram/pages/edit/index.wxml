@@ -1,0 +1,15 @@
+<view class="container">
+  <!-- 标题、优先级修改 -->
+  <view class="actions">
+    <list-item>
+      <input type="text" confirm-type="done" slot="body" placeholder="请输入任务标题..."
+        placeholder-style="color: #BDBDBD" value="{{title}}" maxlength="{{maxLength}}" 
+        bindinput="onInput" class="list-item-input"></input>
+      <view class="iconBox" slot="suffix" bindtap="selectDefPriority">
+        <image class="icon priority-btn" src="{{priorityIcon}}"></image>
+      </view>
+    </list-item>
+  </view>
+  <textarea class="description" maxlength="-1" placeholder="描述..." placeholder-style="color: #BDBDBD"></textarea>
+  <button class="confirm">确定</button>
+</view>

@@ -2,7 +2,7 @@
   <view class="iconBox" slot="prefix" bindtap="finishTodo">
     <view class="todo-checkbox {{priorityClass}}"></view>
   </view>
-  <view class="todo-body" slot="body">
+  <view class="todo-body" slot="body" bindtap="toEdit">
     <text class="todo-body-title">{{todo.title}}</text>
   </view>
   <view class="iconBox" slot="suffix" bindtap="showTodoActions">

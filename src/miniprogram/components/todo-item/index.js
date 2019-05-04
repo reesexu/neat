@@ -35,10 +35,14 @@ Component({
         event.emit(UPDATE_LOCAL_TODO, { _id, finish: !finish })
         setTimeout(() => {
           event.emit(UPDATE_LOCAL_TODO, { _id, removed: true })
-        }, 300)
+        }, 250)
       } catch (error) {
         console.error(error)
       }
-    }, 1000)
+    }, 1000),
+    // 打开详细编辑
+    toEdit() {
+      wx.navigateTo({ url: '/pages/edit/index' })
+    }
   }
 })

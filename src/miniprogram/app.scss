@@ -3,6 +3,8 @@
 @import "./style/utils.scss";
 
 page {
+  height: 100%;
+  box-sizing: border-box;
   font-size: $font-size-normal;
   letter-spacing: .5px;
   color: $color-primary-text;
@@ -15,4 +17,12 @@ page {
   @extend %flexCenter;
   height: 100%;
   width: 100rpx;
+}
+.priority-btn {
+  width: 15px;
+  height: 15px;
+}
+.list-item-input {
+  height: 100%;
+  flex: 1;
 }
