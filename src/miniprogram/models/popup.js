@@ -1,7 +1,7 @@
 import { UPDATE_LOCAL_TODO } from '../constants/event'
 import Base from './base'
 const FILE_ACTIONS = ['删除']
-const priority = ['紧急', '普通', '一般']
+const priority = ['高', '中', '低']
 export default class Popup extends Base {
   constructor(db, app) {
     super()

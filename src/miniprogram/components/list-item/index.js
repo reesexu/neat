@@ -15,5 +15,10 @@ Component({
     addGlobalClass: true,
     multipleSlots: true
   },
-  externalClasses: ['e-class']
+  externalClasses: ['e-class'],
+  methods: {
+    onTap() {
+      this.triggerEvent('itemtap')
+    }
+  }
 })

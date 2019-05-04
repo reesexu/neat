@@ -22,9 +22,12 @@ Component({
     }
   },
   methods: {
+    // 选中当前任务
+    selectTodo() {
+      models.todo.setCurrentTodo(this.properties.todo)
+    },
     // 打开任务操作菜单
     showTodoActions() {
-      models.todo.setCurrentTodo(this.properties.todo)
       models.popup.showTodoActions()
     },
     // 完成任务

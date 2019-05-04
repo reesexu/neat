@@ -4,6 +4,7 @@ import computedBehavior from 'miniprogram-computed'
 import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
 import { TITLE_MAX_LENGTH, priorityClasses, storgeKeys } from '../../constants/index'
 import { showToast } from '../../utils/wx'
+import { validatetTodoTitle, contentEmpyt } from '../../utils/validate'
 const { models, event } = getApp()
 const count = 20
 
@@ -48,19 +49,13 @@ Component({
     },
     // 输入事件
     onInput: debounce(function({ detail }) {
-      let title = detail.value
-      if (title.length > TITLE_MAX_LENGTH) {
-        showToast(`标题长度不能超过${TITLE_MAX_LENGTH}`)
-        title = title.substring(0, TITLE_MAX_LENGTH)
-      }
+      let title = validatetTodoTitle(detail.value)
       this.setData({ title })
     }, 250),
     // 添加任务
     addTodo: throttle(async function() {
       const { title, defPriority } = this.data
-      if (!/\S+/g.test(title)) {
-        return showToast('标题不能为空')
-      }
+      if (contentEmpyt(title)) return
       try {
         wx.showNavigationBarLoading()
         await models.todo.addTodo({ title, priority: defPriority })

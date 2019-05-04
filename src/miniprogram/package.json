@@ -11,6 +11,7 @@
   "dependencies": {
     "debounce": "^1.2.0",
     "eventemitter3": "^3.1.0",
+    "lodash.isequal": "^4.5.0",
     "miniprogram-computed": "0.0.7",
     "throttleit": "^1.0.0"
   }
