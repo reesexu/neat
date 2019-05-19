@@ -1,5 +1,6 @@
 const path = require('path')
 const gulp = require('gulp')
+const fs = require('fs')
 const { series, parallel } = gulp
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
@@ -9,20 +10,22 @@ const axios = require('axios')
 const inject = require('gulp-inject-string')
 const jdists = require('gulp-jdists')
 const imagemin = require('gulp-imagemin')
-const devToolPort = 51230 // 微信开发工具服务端端口
-const host = 'http://127.0.0.1'
-const requestUrl = `${host}:${devToolPort}`
 const src = './src' // 源码目录
 const dist = './dist' // 构建目录
-const regeneratorRuntimeFolderName = 'regenerator-runtime'
-const miniprogramFolderName = 'miniprogram'
+const regeneratorRuntimeFolderName = 'regenerator-runtime' // regenerator-runtime的目录名
+const miniprogramFolderName = 'miniprogram' // 小程序代码所在目录名
 const miniprogramDistPath = `${dist}/${miniprogramFolderName}`
 const miniprogramSrcPath = `${src}/${miniprogramFolderName}`
-const miniprogramNpmFolderPath = `${miniprogramDistPath}/miniprogram_npm`
+const miniprogramNpmFolderPath = `${miniprogramDistPath}/miniprogram_npm` // 小程序npm包目录名
 const projectpath = path.resolve(dist)
-const isDev = process.env.NODE_ENV === 'development'
-const isAutoPreview = process.env.AUTO_PREVIEW === 'auto'
+const host = 'http://127.0.0.1'
+const ideConfigPath = '/home/xuwenchao/.config/wechat_web_devtools/Default/.ide' // 微信开发工具配置文件路径
+const devToolPort = fs.readFileSync(ideConfigPath, { encoding: 'utf-8' }) // 微信开发工具服务端端口,从配置文件中读取，因为每次启动开发工具都会改变
+const requestUrl = `${host}:${devToolPort}`
+const isDev = process.env.NODE_ENV === 'development' // 是否是开发环境
+const isAutoPreview = process.env.AUTO_PREVIEW === 'auto' // 是否启动自动预览
 axios.default.timeout = 6000
+
 
 // 处理wxml
 const wxml = () => gulp

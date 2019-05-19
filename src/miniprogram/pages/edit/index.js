@@ -83,7 +83,7 @@ Component({
         wx.navigateBack()
         setTimeout(() => {
           showToast(`${isEdit ? '编辑' : '新建'}成功`, { duration: 1500 })
-        }, 300)
+        }, 500)
       } catch (error) {
         console.error(error)
       } finally {
