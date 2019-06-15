@@ -1,15 +1,15 @@
 import debounce from 'debounce'
 import isEqual from 'lodash.isequal'
 import computedBehavior from 'miniprogram-computed'
-import { TITLE_MAX_LENGTH, priorityClasses } from '../../constants/index'
+import { TODO_TITLE_MAX_LENGTH, priorityClasses } from '../../constants/index'
 import { UPDATE_LOCAL_TODO, REFRESH_TODOS } from '../../constants/event'
-import { validatetTodoTitle, contentEmpyt } from '../../utils/validate'
+import { validatetString, isContentEmpyt } from '../../utils/validate'
 import { showToast } from '../../utils/wx'
 const { globalData, models, event } = getApp()
 Component({
   data: {
     todo: {},
-    maxLength: TITLE_MAX_LENGTH + 1,
+    maxLength: TODO_TITLE_MAX_LENGTH + 1,
     operating: false
   },
   properties: {
@@ -40,7 +40,7 @@ Component({
     },
     // 标题输入事件
     onTitleInput: debounce(function({ detail }) {
-      let title = validatetTodoTitle(detail.value)
+      let title = validatetString(detail.value)
       this.setData({
         ['todo.title']: title
       })
@@ -64,7 +64,7 @@ Component({
       const { operating, todo, type } = this.data
       const { priority = 0, title, description, _id } = todo
       if (operating) return
-      if (contentEmpyt(title)) return
+      if (isContentEmpyt(title)) return
       const isEdit = type === 'edit'
       const data = {
         title,
@@ -82,7 +82,7 @@ Component({
         }
         wx.navigateBack()
         setTimeout(() => {
-          showToast(`${isEdit ? '编辑' : '新建'}成功`, { duration: 1500 })
+          showToast(`${isEdit ? '编辑' : '添加'}成功`, { duration: 1500 })
         }, 500)
       } catch (error) {
         console.error(error)

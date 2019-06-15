@@ -9,6 +9,13 @@ page {
   letter-spacing: .5px;
   color: $color-primary-text;
 }
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 25rpx 40rpx;
+}
 .icon {
   height: 45rpx;
   width: 45rpx;
@@ -25,4 +32,11 @@ page {
 .list-item-input {
   height: 100%;
   flex: 1;
+}
+.btn-larger {
+  background-color: $color-main;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 630rpx;
 }

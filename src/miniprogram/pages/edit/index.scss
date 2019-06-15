@@ -1,23 +1,8 @@
 @import "../../style/theme.scss";
-.container {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 0 25rpx 40rpx;
-}
 .description {
   flex: 1;
   width: 100%;
   padding: 25rpx 0 0;
   line-height: 23px;
   margin-bottom: 40rpx;
-}
-.confirm {
-  background-color: $color-main;
-  color: #fff;
-  border: none;
-  outline: none;
-  width: 630rpx;
-  padding: 3px 0;
 }

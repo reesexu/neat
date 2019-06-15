@@ -16,14 +16,14 @@ Component({
       this.setData({ show: true })
       models.todo.setCurrentTodo({})
       wx.showActionSheet({
-        itemList: ['新建任务', '新建清单'],
+        itemList: ['添加任务', '添加清单'],
         success: ({ tapIndex }) => {
           switch (tapIndex) {
             case 0:
               wx.navigateTo({ url: '/pages/edit/index?type=new' })
               break
             case 1:
-
+              wx.navigateTo({ url: '/pages/newList/index' })
               break
           }
         },

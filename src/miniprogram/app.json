@@ -3,6 +3,7 @@
   "pages": [
     "pages/index/index",
     "pages/edit/index",
+    "pages/newList/index",
     "pages/storageConsole/storageConsole"
   ],
   "window": {

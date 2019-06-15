@@ -2,9 +2,8 @@ import debounce from 'debounce'
 import throttle from 'throttleit'
 import computedBehavior from 'miniprogram-computed'
 import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
-import { TITLE_MAX_LENGTH, priorityClasses, storgeKeys } from '../../constants/index'
-import { showToast } from '../../utils/wx'
-import { validatetTodoTitle, contentEmpyt } from '../../utils/validate'
+import { TODO_TITLE_MAX_LENGTH, priorityClasses, storgeKeys } from '../../constants/index'
+import { validatetString, isContentEmpyt } from '../../utils/validate'
 const { models, event } = getApp()
 const count = 20
 
@@ -12,7 +11,7 @@ Component({
   data: {
     todos: [],
     title: '',
-    maxLength: TITLE_MAX_LENGTH + 1,
+    maxLength: TODO_TITLE_MAX_LENGTH + 1,
     loading: false,
     defPriority: 0
   },
@@ -49,13 +48,13 @@ Component({
     },
     // 输入事件
     onInput: debounce(function({ detail }) {
-      let title = validatetTodoTitle(detail.value)
+      let title = validatetString(detail.value)
       this.setData({ title })
     }, 250),
     // 添加任务
     addTodo: throttle(async function() {
       const { title, defPriority } = this.data
-      if (contentEmpyt(title)) return
+      if (isContentEmpyt(title)) return
       try {
         wx.showNavigationBarLoading()
         await models.todo.addTodo({ title, priority: defPriority })
@@ -74,8 +73,8 @@ Component({
       this.setData({ loading: true })
       try {
         wx.showNavigationBarLoading()
-        const { data } = await models.todo.getTodos({ skip, where: { deleted: false } })
-        // 局部更新，防止在setData的时候数据量不断增大
+        const { data } = await models.todo.getTodos({ skip, where: { deleted: false, finish: false } })
+        // 局部更新，防止在setData的时候数据量不断增大造成卡顿
         if (skip !== 0) {
           let updateItems = data.reduce((acc, item, index) => {
             acc[`todos[${skip + index}]`] = item

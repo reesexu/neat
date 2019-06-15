@@ -1,0 +1,11 @@
+<view class="container">
+  <!-- 标题、优先级修改 -->
+  <view class="actions">
+    <list-item>
+      <input class="list-item-input" type="text" confirm-type="done" slot="body" placeholder="请输入清单名..."
+        placeholder-style="color: #BDBDBD" value="{{todo.title}}" maxlength="{{maxLength}}" auto-focus>
+      </input>
+    </list-item>
+  </view>
+  <button loading="{{operating}}" disabled="{{disabled}}" class="confirm btn-larger" bindtap="onSubmit">添加</button>
+</view>

@@ -15,5 +15,5 @@
     placeholder-style="color: #BDBDBD" value="{{todo.description}}"
     maxlength="800" bindinput="onDesInput">
   </textarea>
-  <button loading="{{operating}}" disabled="{{disabled}}" class="confirm" bindtap="onSubmit">确定</button>
+  <button loading="{{operating}}" disabled="{{disabled}}" class="btn-larger" bindtap="onSubmit">确定</button>
 </view>

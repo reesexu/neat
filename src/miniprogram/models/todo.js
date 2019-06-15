@@ -7,18 +7,18 @@ export default class Todo extends Base {
     this.app = app
   }
   // 添加任务
-  async addTodo({ title, description, priority = 0, pid = 0 }) {
+  async addTodo({ title, description, priority = 0, lid = '0' }) {
     const ctime = this.db.serverDate()
     await this.db.collection(TODOS).add({
       data: {
-        title,
-        description,
-        ctime,
-        utime: ctime,
-        finish: false,
-        deleted: false,
-        priority,
-        pid
+        title, // 标题
+        description, // 描述
+        ctime, // 创建时间
+        utime: ctime, // 更新时间
+        finish: false, // 是否完成
+        deleted: false, // 是否删除
+        priority, // 优先级
+        lid // 所在清单id，默认是'0', 即默认清单
       }
     })
   }
