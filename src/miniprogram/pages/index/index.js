@@ -14,8 +14,9 @@ Component({
     title: '',
     maxLength: TODO_TITLE_MAX_LENGTH + 1,
     loading: false,
-    defPriority: 0
+    defPriority: 0,
   },
+  sideBar: null,
   behaviors: [computedBehavior],
   computed: {
     finalTodos() {
@@ -34,6 +35,7 @@ Component({
           this.setData({ defPriority: data })
         }
       })
+      this.sideBar = this.selectComponent('#sideBar')
       event.on(REFRESH_TODOS, this.getTodos.bind(this))
       event.on(UPDATE_LOCAL_TODO, this.updateLocalTodo.bind(this))
     },
@@ -69,9 +71,11 @@ Component({
     }, 1000),
     // 获取任务
     async getTodos(skip = 0) {
-      const { loading } = this.data
+      const { loading, finalTodos: { length } } = this.data
       if (loading) return
-      this.setData({ loading: true })
+      if (length >= 20 || length === 0) {
+        this.setData({ loading: true })
+      }
       try {
         wx.showNavigationBarLoading()
         const { data } = await models.todo.getTodos({ skip, where: { deleted: false, finish: false } })
@@ -102,6 +106,7 @@ Component({
         })
       }
     },
+    // 更改快捷创建任务栏的默认任务优先级
     selectDefPriority() {
       models.popup.selectDefPriority((index) => {
         const defPriority = 2 - index
@@ -109,6 +114,10 @@ Component({
           wx.setStorageSync(storgeKeys.defPriority, defPriority)
         })
       })
+    },
+    // 打开侧边栏
+    openSideBar() {
+      this.sideBar.toggle()
     }
   }
 })

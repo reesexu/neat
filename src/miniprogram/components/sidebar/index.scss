@@ -1,0 +1,27 @@
+@import "../../style/theme.scss";
+@import "../../style/utils.scss";
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 75%;
+  background-color: $color-main;
+  color: #fff;
+  z-index: 9;
+  padding: $m-space;
+  transition: all .3s ease-in-out;
+  transform: translateX(-100%);
+  &-show {
+    transform: none;
+  }
+  &-header {
+    &-avatar {
+      height: 88rpx;
+      width: 88rpx;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: $s-space;
+    }
+  }
+}

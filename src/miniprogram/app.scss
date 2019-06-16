@@ -2,9 +2,12 @@
 @import "./style/1px.scss";
 @import "./style/utils.scss";
 
+page, view {
+  box-sizing: border-box;
+}
+
 page {
   height: 100%;
-  box-sizing: border-box;
   font-size: $font-size-normal;
   letter-spacing: .5px;
   color: $color-primary-text;
@@ -13,8 +16,7 @@ page {
   display: flex;
   height: 100%;
   flex-direction: column;
-  box-sizing: border-box;
-  padding: 0 25rpx 40rpx;
+  padding: 0 $m-space 40rpx;
 }
 .icon {
   height: 45rpx;

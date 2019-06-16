@@ -1,14 +1,5 @@
 <view>
-  <!-- 头部 -->
-  <!-- <view class="header bd bd-b">
-    <view class="avatar">
-      <open-data type="userAvatarUrl"></open-data>
-    </view>
-    <view class="iconBox">
-      <image class="icon" src="../../images/menu.svg"></image>
-    </view>
-  </view> -->
-  <list-item icon="{{'../../images/menu.svg'}}">
+  <list-item icon="{{'../../images/menu.svg'}}" bindtap="openSideBar">
     <view slot="body" class="header">我的任务</view>
   </list-item>
   <!-- 操作栏 -->
@@ -34,7 +25,8 @@
   <todo-item wx:for="{{finalTodos}}" wx:key="{{item._id}}" todo="{{item}}"></todo-item>
   <!-- 下拉加载提示区 -->
   <list-item line-under="{{false}}">
-    <view slot="body" wx:if="{{loading && (finalTodos.length >= 20 || finalTodos.length === 0)}}" class="loading-info">正在加载...</view>
+    <view slot="body" wx:if="{{loading}}" class="loading-info">正在加载...</view>
   </list-item>
   <add-btn></add-btn>
+  <sidebar id="sideBar" show="{{showSlideBar}}"></sidebar>
 </view>
