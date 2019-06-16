@@ -5,13 +5,14 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 75%;
-  background-color: $color-main;
-  color: #fff;
+  width: 72%;
+  background-color: #fff;
+  color: $color-primary-text;
   z-index: 9;
   padding: $m-space;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
   transform: translateX(-100%);
+  box-shadow: 0 0 9px $color-shadow;
   &-show {
     transform: none;
   }
@@ -22,6 +23,18 @@
       border-radius: 50%;
       overflow: hidden;
       margin-bottom: $s-space;
+    }
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 130rpx;
+      width: 130rpx;
+      padding: 20rpx;
+      .icon {
+        width: 50rpx;
+        height: 50rpx;
+      }
     }
   }
 }

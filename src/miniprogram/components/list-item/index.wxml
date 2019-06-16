@@ -5,13 +5,13 @@
   </view>
   <slot wx:else name="prefix"></slot>
   <!-- 列表主体 -->
-  <view class="list-item-body {{lineUnder ? 'bd bd-b' : ''}}">
+  <view class="list-item-body {{borderClass}}}">
     <slot name="body"></slot>
   </view>
-  <view class="{{lineUnder ? 'bd bd-b' : ''}}">
+  <view class="{{borderClass}}">
     <slot name="s-suffix"></slot>
   </view>
-  <view class="{{lineUnder ? 'bd bd-b' : ''}}">
+  <view class="{{borderClass}}">
     <slot name="suffix"></slot>
   </view>
 </view>

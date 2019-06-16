@@ -1,4 +1,13 @@
+import computedBehavior from 'miniprogram-computed'
+import classnames from 'classnames'
+
 Component({
+  behaviors: [computedBehavior],
+  computed: {
+    borderClass() {
+      return classnames({ 'bd bd-b': this.properties.lineUnder })
+    }
+  },
   properties: {
     // 前缀图标
     icon: {

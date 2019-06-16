@@ -6,9 +6,12 @@ const { models } = getApp()
 
 Component({
   data: {
-    show: true
+    show: false
   },
   behaviors: [computedBehavior],
+  options: {
+    addGlobalClass: true
+  },
   computed: {
     sidebarClass() {
       return classnames('sidebar', { 'sidebar-show': this.data.show })
