@@ -1,5 +1,7 @@
 import Base from './base'
+
 const LISTS = 'lists'
+
 export default class List extends Base {
   constructor(db, app) {
     super()
@@ -37,6 +39,6 @@ export default class List extends Base {
   }
   // 缓存当前操作的清单
   setCurrentList(list) {
-    this.app.globalData.currentList = list
+    this.app.globalData.curtList = list
   }
 }

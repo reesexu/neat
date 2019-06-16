@@ -1,5 +1,6 @@
 import { TODO_TITLE_MAX_LENGTH } from '../constants/index'
 import { showToast } from './wx'
+
 // 根据长度校验&切割字符串
 export const validatetString = (title, { maxLength, subject } = {
   maxLength: TODO_TITLE_MAX_LENGTH,

@@ -1,5 +1,7 @@
 import Base from './base'
+
 const TODOS = 'todos'
+
 export default class Todo extends Base {
   constructor(db, app) {
     super()
@@ -43,6 +45,6 @@ export default class Todo extends Base {
   }
   // 缓存当前操作的任务
   setCurrentTodo(todo) {
-    this.app.globalData.currentTodo = todo
+    this.app.globalData.curTodo = todo
   }
 }

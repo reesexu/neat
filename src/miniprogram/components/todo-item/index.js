@@ -2,7 +2,10 @@ import computedBehavior from 'miniprogram-computed'
 import throttle from 'throttleit'
 import { UPDATE_LOCAL_TODO } from '../../constants/event'
 import { priorityClasses } from '../../constants/index'
+import route from '../../constants/route'
+
 const { models, event } = getApp()
+
 Component({
   behaviors: [computedBehavior],
   options: {
@@ -45,7 +48,7 @@ Component({
     }, 1000),
     // 打开详细编辑
     toEdit() {
-      wx.navigateTo({ url: '/pages/edit/index' })
+      wx.navigateTo({ url: route.editTodo })
     }
   }
 })

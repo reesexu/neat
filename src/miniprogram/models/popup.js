@@ -1,7 +1,10 @@
 import { UPDATE_LOCAL_TODO } from '../constants/event'
+import route from '../constants/route'
 import Base from './base'
+
 const FILE_ACTIONS = ['删除', '编辑']
 const priority = ['高', '中', '低']
+
 export default class Popup extends Base {
   constructor(db, app) {
     super()
@@ -11,7 +14,7 @@ export default class Popup extends Base {
   // 展示任务操作弹窗
   showTodoActions() {
     const { models, globalData, event } = this.app
-    const { _id } = globalData.currentTodo
+    const { _id } = globalData.curTodo
     wx.showActionSheet({
       itemList: FILE_ACTIONS,
       async success({ tapIndex }) {
@@ -25,7 +28,7 @@ export default class Popup extends Base {
             }
             break
           case 1:
-            wx.navigateTo({ url: '/pages/edit/index' })
+            wx.navigateTo({ url: route.editTodo })
             break
         }
       },

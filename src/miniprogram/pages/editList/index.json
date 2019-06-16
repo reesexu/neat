@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "添加清单",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "add-btn": "../../components/add-btn/index"
   },

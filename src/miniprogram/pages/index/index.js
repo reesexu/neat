@@ -4,6 +4,7 @@ import computedBehavior from 'miniprogram-computed'
 import { REFRESH_TODOS, UPDATE_LOCAL_TODO } from '../../constants/event'
 import { TODO_TITLE_MAX_LENGTH, priorityClasses, storgeKeys } from '../../constants/index'
 import { validatetString, isContentEmpyt } from '../../utils/validate'
+
 const { models, event } = getApp()
 const count = 20
 

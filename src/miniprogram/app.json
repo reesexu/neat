@@ -2,8 +2,8 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/edit/index",
-    "pages/newList/index",
+    "pages/editTodo/index",
+    "pages/editList/index",
     "pages/storageConsole/storageConsole"
   ],
   "window": {

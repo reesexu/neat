@@ -5,7 +5,9 @@ import { TODO_TITLE_MAX_LENGTH, priorityClasses } from '../../constants/index'
 import { UPDATE_LOCAL_TODO, REFRESH_TODOS } from '../../constants/event'
 import { validatetString, isContentEmpyt } from '../../utils/validate'
 import { showToast } from '../../utils/wx'
+
 const { globalData, models, event } = getApp()
+
 Component({
   data: {
     todo: {},
@@ -27,14 +29,14 @@ Component({
     disabled() {
       const { todo, type } = this.data
       if (type === 'edit') {
-        return isEqual(todo, globalData.currentTodo)
+        return isEqual(todo, globalData.curTodo)
       }
-      return false
+      return !todo.title
     }
   },
   methods: {
     onLoad() {
-      const todo = Object.assign({}, globalData.currentTodo)
+      const todo = Object.assign({}, globalData.curTodo)
       this.setData({ todo })
       wx.setNavigationBarTitle({ title: todo.title ? '编辑任务' : '新建任务' })
     },
@@ -63,8 +65,7 @@ Component({
     async onSubmit() {
       const { operating, todo, type } = this.data
       const { priority = 0, title, description, _id } = todo
-      if (operating) return
-      if (isContentEmpyt(title)) return
+      if (isContentEmpyt(title) || operating) return
       const isEdit = type === 'edit'
       const data = {
         title,
