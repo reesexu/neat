@@ -6,9 +6,11 @@
 - 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
 - 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
-## 参考文档
+## 开发注意
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+
+1. 
 
 ```
 组件样式
@@ -28,3 +30,11 @@ button {
 .a > .b {
 } /* 除非 .a 是 view 组件节点，否则不一定会生效 */
 ```
+
+2. 启动步骤
+
+- 首次打开，项目根目录npm i，安装依赖，
+- 进入src/miniprogram文件夹， npm i 安装依赖
+- npm run build 或者 npm run dev 打包产生dist文件夹，该文件夹中的文件为打包后的文件，是小程序开发工具中需要直接打开的文件夹
+- 使用小程序开发工具打开dist文件夹
+- npm run dev开始开发

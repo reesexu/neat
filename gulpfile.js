@@ -63,7 +63,13 @@ const injectRuntime = () => gulp.src([`${miniprogramDistPath}/app.js`, `${minipr
 const npm = async () => await axios.get(`${requestUrl}/buildnpm`, { params: { projectpath } })
 
 // 自动预览
-const autoPreview = async () => await axios.get(`${requestUrl}/autopreview`, { params: { projectpath } })
+const autoPreview = async () => {
+  try {
+    await axios.get(`${requestUrl}/autopreview`, { params: { projectpath } })
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 // 处理json
 const json = () => gulp.src(`${src}/**/*.json`).pipe(gulp.dest(dist))
