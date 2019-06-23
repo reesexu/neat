@@ -5,6 +5,7 @@ import route from '../../constants/route'
 const { models } = getApp()
 
 Component({
+  startX: 0,
   data: {
     show: false
   },
@@ -21,6 +22,12 @@ Component({
     // 开关
     toggle() {
       this.setData({ show: !this.data.show })
+    },
+    touchstart({ changedTouches }) {
+      this.startX = changedTouches[0].pageX
+    },
+    touchend({ changedTouches }) {
+      this.startX - changedTouches[0].pageX > 20 && this.toggle()
     },
     showMenus() {
       this.setData({ show: true })
