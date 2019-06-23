@@ -15,7 +15,7 @@
     <!-- 清单列表标题栏 -->
     <list-item>
       <text class="sidebar-list-title" slot="body">我的清单</text>
-      <image class="sidebar-list-more icon" slot="suffix" src="../../images/add-b.svg"></image>
+      <image class="sidebar-list-more icon" slot="suffix" src="../../images/add-b.svg" bindtap="toAdd"></image>
     </list-item>
     <!-- 清单列表 -->
     <list-item wx:for="{{lists}}" wx:key="{{item._id}}">

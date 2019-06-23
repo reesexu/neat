@@ -38,6 +38,9 @@ Component({
     touchend({ changedTouches }) {
       this.startX - changedTouches[0].pageX > 20 && this.toggle()
     },
+    toAdd() {
+      wx.navigateTo({ url: route.addList })
+    },
     showMenus() {
       this.setData({ show: true })
       models.todo.setCurrentTodo({})
