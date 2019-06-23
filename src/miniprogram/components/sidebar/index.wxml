@@ -1,13 +1,27 @@
-<view class="{{sidebarClass}}" bindtouchstart="touchstart" bindtouchend="touchend">
-  <view class="sidebar-header">
-    <view class="sidebar-header-avatar">
-      <open-data type="userAvatarUrl"></open-data>
+<view id="sidebar-wrapper" class="{{sidebarClass}}" bindtouchstart="touchstart" bindtouchend="touchend" bindtap="toggle">
+  <view class="sidebar">
+    <!-- 头部 -->
+    <view class="sidebar-header">
+      <view class="sidebar-header-avatar">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="sidebar-header-name">
+        <open-data type="userNickName"></open-data>
+      </view>
+      <view class="iconBox sidebar-header-close" capture-catch:tap="toggle">
+        <image class="icon" src="../../images/close.svg"></image>
+      </view>
     </view>
-    <view class="sidebar-header-name">
-      <open-data type="userNickName"></open-data>
-    </view>
-    <view class="iconBox close" bindtap="toggle">
-      <image class="icon" src="../../images/close.svg"></image>
-    </view>
+    <!-- 清单列表标题栏 -->
+    <list-item>
+      <text class="sidebar-list-title" slot="body">我的清单</text>
+      <image class="sidebar-list-more icon" slot="suffix" src="../../images/add-b.svg"></image>
+    </list-item>
+    <!-- 清单列表 -->
+    <list-item wx:for="{{lists}}" wx:key="{{item._id}}">
+      <image class="sidebar-list-icon icon-s" slot="prefix" src="../../images/menu.svg"></image>
+      <text class="sidebar-list-title" slot="body">{{item.title}}</text>
+      <image class="sidebar-list-more icon-s" slot="suffix" src="../../images/more.svg"></image>
+    </list-item>
   </view>
 </view>

@@ -1,17 +1,21 @@
 <view class="list-item e-class" capture-bind:tap="onTap">
   <!-- 列表项前缀 -->
-  <view  wx:if="{{icon}}" class="iconBox">
+  <view wx:if="{{icon}}" class="iconBox">
     <image class="icon" src="{{icon}}"></image>
   </view>
-  <slot wx:else name="prefix"></slot>
+  <view wx:else class="list-item-prefix">
+    <slot name="prefix"></slot>
+  </view>
   <!-- 列表主体 -->
-  <view class="list-item-body {{borderClass}}}">
+  <view class="list-item-body {{borderClass}}}" bindtap="onBodyTap">
     <slot name="body"></slot>
   </view>
-  <view class="{{borderClass}}">
+  <!-- 列表次后缀 -->
+  <view class="list-item-s-suffix {{borderClass}}">
     <slot name="s-suffix"></slot>
   </view>
-  <view class="{{borderClass}}">
+  <!-- 列表后缀 -->
+  <view class="list-item-suffix {{borderClass}}">
     <slot name="suffix"></slot>
   </view>
 </view>

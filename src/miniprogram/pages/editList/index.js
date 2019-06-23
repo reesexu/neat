@@ -37,7 +37,10 @@ Component({
     },
     // 输入事件
     onInput: debounce(function({ detail }) {
-      let title = validatetString(detail.value)
+      let title = validatetString(detail.value, {
+        maxLength: LIST_TITLE_MAX_LENGTH,
+        subject: '清单名称'
+      })
       this.setData({
         ['list.title']: title
       })

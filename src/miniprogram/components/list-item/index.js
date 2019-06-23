@@ -28,6 +28,9 @@ Component({
   methods: {
     onTap() {
       this.triggerEvent('itemtap')
+    },
+    onBodyTap() {
+      this.triggerEvent('bodytap')
     }
   }
 })

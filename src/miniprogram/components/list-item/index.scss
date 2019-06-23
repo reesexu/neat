@@ -1,10 +1,16 @@
+@import "../../style/utils.scss";
 .list-item {
   position: relative;
   display: flex;
   height: 110rpx;
+  &-prefix, &-s-suffix, &-suffix {
+    @extend %flexCenter;
+    height: 100%;
+  }
   &-body {
     display: flex;
     flex: 1;
-    line-height: 110rpx;
+    height: 100%;
+    @extend %flexCenter;
   }
 }

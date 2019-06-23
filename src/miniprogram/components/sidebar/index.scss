@@ -1,22 +1,27 @@
 @import "../../style/theme.scss";
 @import "../../style/utils.scss";
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  &-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(58, 58, 58, 0.5);
+    &-show {
+      transform: none;
+    }
+    transition: all .2s ease-in-out;
+    transform: translateX(-100%);
+    z-index: 9;
+  }
   height: 100%;
-  width: 72%;
+  width: 85%;
   background-color: #fff;
   color: $color-primary-text;
-  z-index: 9;
   padding: $m-space;
-  transition: all .2s ease-in-out;
-  transform: translateX(-100%);
-  box-shadow: 0 0 9px $color-shadow;
-  &-show {
-    transform: none;
-  }
   &-header {
+    position: relative;
     &-avatar {
       height: 88rpx;
       width: 88rpx;
@@ -24,13 +29,23 @@
       overflow: hidden;
       margin-bottom: $s-space;
     }
-    .close {
+    &-close {
       position: absolute;
-      right: 0;
-      top: 0;
+      right:-45rpx;
+      top:-46rpx;
       height: 130rpx;
       width: 130rpx;
       padding: 20rpx;
+    }
+  }
+  &-list {
+    &-icon {
+      margin-right: $s-space;
+    }
+    &-title {
+      flex: 1;
+      width: 0;
+      @extend %ellipsis;
     }
   }
 }

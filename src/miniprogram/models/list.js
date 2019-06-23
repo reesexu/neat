@@ -20,10 +20,8 @@ export default class List extends Base {
     })
   }
   // 获取清单
-  async getLists({ skip = 0, where = {} } = {}) {
+  async getLists() {
     const data = await this.db.collection(LISTS)
-      .limit(20)
-      .skip(skip)
       .get({ _openid: this.app.globalData.openId })
     return data
   }

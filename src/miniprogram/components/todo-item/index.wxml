@@ -1,8 +1,8 @@
-<list-item e-class="{{todo.finish ? 'todo-finish' : ''}}" binditemtap="selectTodo">
+<list-item e-class="{{todo.finish ? 'todo-finish' : ''}}" binditemtap="selectTodo" bindbodytap="toEdit">
   <view class="iconBox" slot="prefix" bindtap="finishTodo">
     <view class="todo-checkbox {{priorityClass}}"></view>
   </view>
-  <view class="todo-body" slot="body" bindtap="toEdit">
+  <view class="todo-body" slot="body">
     <text class="todo-body-title">{{todo.title}}</text>
   </view>
   <view class="iconBox" slot="suffix" bindtap="showTodoActions">

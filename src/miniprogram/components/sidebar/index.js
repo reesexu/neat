@@ -7,7 +7,8 @@ const { models } = getApp()
 Component({
   startX: 0,
   data: {
-    show: false
+    show: true,
+    lists: []
   },
   behaviors: [computedBehavior],
   options: {
@@ -15,12 +16,20 @@ Component({
   },
   computed: {
     sidebarClass() {
-      return classnames('sidebar', { 'sidebar-show': this.data.show })
+      return classnames('sidebar-wrapper', { 'sidebar-wrapper-show': this.data.show })
+    }
+  },
+  lifetimes: {
+    async created() {
+      const { data } = await models.list.getLists()
+      console.log(data)
+      this.setData({ lists: data })
     }
   },
   methods: {
     // 开关
-    toggle() {
+    toggle(event) {
+      if (event && event.type === 'tap' && event.target.id !== event.currentTarget.id) return
       this.setData({ show: !this.data.show })
     },
     touchstart({ changedTouches }) {
