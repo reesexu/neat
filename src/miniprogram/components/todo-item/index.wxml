@@ -6,6 +6,6 @@
     <text class="todo-body-title">{{todo.title}}</text>
   </view>
   <view class="iconBox" slot="suffix" bindtap="showTodoActions">
-    <image class="icon" src="../../images/more.svg"></image>
+    <icon-font type="more"></icon-font>
   </view>
 </list-item>

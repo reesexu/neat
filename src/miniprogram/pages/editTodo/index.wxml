@@ -7,7 +7,7 @@
         bindinput="onTitleInput" class="list-item-input">
       </input>
       <view class="iconBox" slot="suffix" bindtap="selectDefPriority">
-        <image class="icon priority-btn" src="{{priorityIcon}}"></image>
+        <icon-font type="priority" eClass="{{priorityIconClass}}" size="s"></icon-font>
       </view>
     </list-item>
   </view>

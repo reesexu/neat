@@ -24,7 +24,7 @@ const devToolPort = fs.readFileSync(ideConfigPath, { encoding: 'utf-8' }) // 微
 const requestUrl = `${host}:${devToolPort}`
 const isDev = process.env.NODE_ENV === 'development' // 是否是开发环境
 const isAutoPreview = process.env.AUTO_PREVIEW === 'auto' // 是否启动自动预览
-axios.default.timeout = 6000
+axios.defaults.timeout = 6000
 
 
 // 处理wxml

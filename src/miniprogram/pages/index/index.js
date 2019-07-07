@@ -22,8 +22,8 @@ Component({
     finalTodos() {
       return this.data.todos.filter(t => !t.removed)
     },
-    priorityIcon() {
-      return `../../images/priority-${priorityClasses[this.data.defPriority]}.svg`
+    iconClass() {
+      return `icon-priority-${priorityClasses[this.data.defPriority]}`
     }
   },
   methods: {

@@ -1,7 +1,7 @@
 <view class="list-item e-class" capture-bind:tap="onTap">
   <!-- 列表项前缀 -->
   <view wx:if="{{icon}}" class="iconBox">
-    <image class="icon" src="{{icon}}"></image>
+    <icon-font type="{{icon}}"></icon-font>
   </view>
   <view wx:else class="list-item-prefix">
     <slot name="prefix"></slot>

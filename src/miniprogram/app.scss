@@ -1,6 +1,7 @@
 @import "./style/theme.scss";
 @import "./style/1px.scss";
 @import "./style/utils.scss";
+@import "./style/icon.scss";
 
 page, view {
   box-sizing: border-box;
@@ -18,31 +19,45 @@ page {
   flex-direction: column;
   padding: 0 $m-space 40rpx;
 }
-.icon {
-  height: 45rpx;
-  width: 45rpx;
-}
-.icon-s {
-  height: 40rpx;
-  width: 40rpx;
-}
+
 .iconBox {
   @extend %flexCenter;
   height: 100%;
   width: 100rpx;
 }
-.priority-btn {
-  width: 15px;
-  height: 15px;
-}
+
+// input全局样式
 .list-item-input {
   height: 100%;
   flex: 1;
 }
+
+// 按钮全局样式
 .btn-larger {
   background-color: $color-main;
   color: #fff;
   border: none;
   outline: none;
   width: 630rpx;
+}
+
+// 侧边栏全局样式
+.sidebar {
+  &-list-icon {
+    margin-right: $s-space;
+  }
+  &-add-btn {
+    color: $color-main;
+  }
+}
+
+// 添加按钮全局样式
+.addBtn {
+  &-icon {
+    transition: all .3s;
+    color: #fff;
+    &-rotate {
+      transform: rotate(45deg);
+    }
+  }
 }

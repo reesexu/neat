@@ -9,19 +9,19 @@
         <open-data type="userNickName"></open-data>
       </view>
       <view class="iconBox sidebar-header-close" capture-catch:tap="toggle">
-        <image class="icon" src="../../images/close.svg"></image>
+        <icon-font type="close"></icon-font>
       </view>
     </view>
     <!-- 清单列表标题栏 -->
     <list-item>
       <text class="sidebar-list-title" slot="body">我的清单</text>
-      <image class="sidebar-list-more icon" slot="suffix" src="../../images/add-b.svg" bindtap="toAdd"></image>
+      <icon-font type="add" slot="suffix" size="l" eClass="sidebar-add-btn" bindtap="toAdd"></icon-font>
     </list-item>
     <!-- 清单列表 -->
     <list-item wx:for="{{lists}}" wx:key="{{item._id}}">
-      <image class="sidebar-list-icon icon-s" slot="prefix" src="../../images/menu.svg"></image>
+      <icon-font type="menu" eClass="sidebar-list-icon" slot="prefix"></icon-font>
       <text class="sidebar-list-title" slot="body">{{item.title}}</text>
-      <image class="sidebar-list-more icon-s" slot="suffix" src="../../images/more.svg"></image>
+      <icon-font type="more" slot="suffix"></icon-font>
     </list-item>
   </view>
 </view>

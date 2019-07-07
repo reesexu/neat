@@ -22,9 +22,9 @@ Component({
   },
   behaviors: [computedBehavior],
   computed: {
-    priorityIcon() {
+    priorityIconClass() {
       const priority = this.data.todo.priority || 0
-      return `../../images/priority-${priorityClasses[priority]}.svg`
+      return `icon-priority-${priorityClasses[priority]}`
     },
     disabled() {
       const { todo, type } = this.data

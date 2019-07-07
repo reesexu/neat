@@ -1,0 +1,23 @@
+@import "../../style/theme.scss";
+.icon {
+  &-s {
+    font-size: 16px;
+  }
+  &-m {
+    font-size: 18px;
+  }
+  &-l {
+    font-size: 20px;
+  }
+  &-priority {
+    &-easy {
+      color: $color-easy;
+    }
+    &-normal {
+      color: $color-normal;
+    }
+    &-urgent {
+      color: $color-urgent;
+    }
+  }
+}

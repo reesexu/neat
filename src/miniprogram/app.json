@@ -31,6 +31,7 @@
   "usingComponents": {
     "list-item": "./components/list-item/index",
     "white-space": "./components/white-space/index",
-    "todo-item": "./components/todo-item/index"
+    "todo-item": "./components/todo-item/index",
+    "icon-font": "./components/icon-font/index"
   }
 }
