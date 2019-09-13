@@ -7,16 +7,10 @@ const sass = require('gulp-sass')
 const combiner = require('stream-combiner2')
 const gulpif = require('gulp-if')
 const axios = require('axios')
-const inject = require('gulp-inject-string')
 const jdists = require('gulp-jdists')
 const imagemin = require('gulp-imagemin')
 const src = './src' // 源码目录
 const dist = './dist' // 构建目录
-const regeneratorRuntimeFolderName = 'regenerator-runtime' // regenerator-runtime的目录名
-const miniprogramFolderName = 'miniprogram' // 小程序代码所在目录名
-const miniprogramDistPath = `${dist}/${miniprogramFolderName}`
-const miniprogramSrcPath = `${src}/${miniprogramFolderName}`
-const miniprogramNpmFolderPath = `${miniprogramDistPath}/miniprogram_npm` // 小程序npm包目录名
 const projectpath = path.resolve(dist)
 const host = 'http://127.0.0.1'
 const ideConfigPath = '/home/xuwenchao/.config/wechat_web_devtools/Default/.ide' // 微信开发工具配置文件路径
@@ -50,15 +44,6 @@ const js = () => gulp
   .pipe(jdists({ trigger: isDev ? 'dev' : 'prod' }))
   .pipe(gulp.dest(`${dist}`))
 
-// 将regeneratorRuntime的源码移动至小程序npm文件夹，便于引入
-const moveRunTime = () => gulp.src(`${miniprogramSrcPath}/lib/${regeneratorRuntimeFolderName}/*.js`)
-  .pipe(gulp.dest(`${miniprogramNpmFolderPath}/${regeneratorRuntimeFolderName}`))
-
-// 给指定的js文件头部注入引入regeneratorRuntime的语句，因为需要使用到async语法的都需要引入该文件
-const injectRuntime = () => gulp.src([`${miniprogramDistPath}/app.js`, `${miniprogramDistPath}/{components,models,pages,app.js}/**/*.js`])
-  .pipe(inject.prepend(`import regeneratorRuntime from '${regeneratorRuntimeFolderName}'\n`))
-  .pipe(gulp.dest(miniprogramDistPath))
-
 // 通过http调用小程序开发工具的构建npm接口构建npm，不用每次安装都手动点击安装
 const npm = async () => await axios.get(`${requestUrl}/buildnpm`, { params: { projectpath } })
 
@@ -82,8 +67,8 @@ const images = () => gulp.src(`${src}/**/images/**`)
 // 处理wxs
 const wxs = () => gulp.src(`${src}/**/*.wxs`).pipe(gulp.dest(dist))
 
-// 组合的处理js任务，先移动js，然后构建npm，将regeneratorRuntime移动至npm目录，然后给需要的js文件自动注入引入regeneratorRuntime语句
-const jsTasks = series(js, parallel(series(npm, moveRunTime), injectRuntime))
+// 组合的处理js任务，先移动js，然后构建npm
+const jsTasks = series(js, parallel(series(npm)))
 
 const withAutoPreview = task => isAutoPreview ? series(task, autoPreview) : series(task)
 
