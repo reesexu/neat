@@ -39,9 +39,10 @@ Component({
       try {
         await models.todo.updateTodo({ _id, data: { finish: !finish } })
         event.emit(UPDATE_LOCAL_TODO, { _id, finish: !finish })
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           event.emit(UPDATE_LOCAL_TODO, { _id, removed: true })
-        }, 250)
+          clearTimeout(timer)
+        }, 150)
       } catch (error) {
         console.error(error)
       }

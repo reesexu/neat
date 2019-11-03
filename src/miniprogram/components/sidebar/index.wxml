@@ -1,27 +1,33 @@
 <view id="sidebar-wrapper" class="{{sidebarClass}}" bindtouchstart="touchstart" bindtouchend="touchend" bindtap="toggle">
   <view class="sidebar">
     <!-- 头部 -->
-    <view class="sidebar-header">
-      <view class="sidebar-header-avatar">
+    <list-item>
+      <view slot="prefix" class="sidebar-header-avatar">
         <open-data type="userAvatarUrl"></open-data>
       </view>
-      <view class="sidebar-header-name">
+      <view slot="body" class="sidebar-header-name">
         <open-data type="userNickName"></open-data>
       </view>
-      <view class="iconBox sidebar-header-close" capture-catch:tap="toggle">
+      <view slot="suffix" class="iconBox sidebar-header-close" capture-catch:tap="toggle">
         <icon-font type="close"></icon-font>
       </view>
-    </view>
+    </list-item>
     <!-- 清单列表标题栏 -->
     <list-item>
       <text class="sidebar-list-title" slot="body">我的清单</text>
-      <icon-font type="add" slot="suffix" size="l" eClass="sidebar-add-btn" bindtap="toAdd"></icon-font>
+      <view class="iconBox" slot="suffix" bindtap="toAdd">
+        <icon-font type="add" size="l" eClass="sidebar-add-btn"></icon-font>
+      </view>
     </list-item>
     <!-- 清单列表 -->
     <list-item wx:for="{{lists}}" wx:key="{{item._id}}">
-      <icon-font type="menu" eClass="sidebar-list-icon" slot="prefix"></icon-font>
+      <view class="iconBox" slot="prefix">
+        <icon-font type="menu" eClass="sidebar-list-icon"></icon-font>
+      </view>
       <text class="sidebar-list-title" slot="body">{{item.title}}</text>
-      <icon-font type="more" slot="suffix"></icon-font>
+      <view class="iconBox" slot="suffix">
+        <icon-font type="more"></icon-font>
+      </view>
     </list-item>
   </view>
 </view>

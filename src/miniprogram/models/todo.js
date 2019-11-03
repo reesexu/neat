@@ -25,7 +25,7 @@ export default class Todo extends Base {
     })
   }
   // 获取任务
-  async getTodos({ skip = 0, where = {}} = {}) {
+  async getTodos({ skip = 0, where = {} } = {}) {
     const data = await this.db.collection(TODOS)
       .limit(20)
       .skip(skip)
